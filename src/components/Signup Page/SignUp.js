@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import './SignUp.css'
+import { useNavigate } from 'react-router-dom';
 const SignUp=()=>{
     const [name, setname] = useState("");
     const [email, setemail] = useState("");
     const [password, setpassword] = useState("");
+    const navigate = useNavigate()
     
     const collectData= async ()=> {
         console.warn([name, email, password])
@@ -16,6 +18,7 @@ const SignUp=()=>{
         });
         data = await data.json();
         console.table(data);
+        navigate("/")
     }
     
     // let valChange = (e) => {
