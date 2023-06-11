@@ -18,7 +18,9 @@ const SignUp=()=>{
         });
         data = await data.json();
         console.table(data);
-        navigate("/")
+        localStorage.setItem("user",JSON.stringify(data));
+        navigate("/");
+
     }
     
     // let valChange = (e) => {
