@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './SignUp.css'
 import { useNavigate } from 'react-router-dom';
 const SignUp=()=>{
@@ -6,6 +6,12 @@ const SignUp=()=>{
     const [email, setemail] = useState("");
     const [password, setpassword] = useState("");
     const navigate = useNavigate()
+    useEffect(() => {
+        const auth = localStorage.getItem("user");
+        if (auth) {
+            navigate('/')
+        }
+    }, [ ])
     
     const collectData= async ()=> {
         console.warn([name, email, password])
