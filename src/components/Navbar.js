@@ -1,10 +1,10 @@
 import {Link, useNavigate} from 'react-router-dom'
 const Navbar = () => {
     const auth = localStorage.getItem('user')
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
     const logout = () => {
         localStorage.clear();
-        // navigate('/signup')
+        navigate('/signup')
      }
     return (
         <nav className='navbar'>
