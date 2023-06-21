@@ -30,21 +30,7 @@ const SignUp=()=>{
 
     }
     
-    // let valChange = (e) => {
-    //    onchange=()=>{setname(e.target.value)};
-    //    onchange=()=>{setemail(e.target.value)};
-    //    onchange=()=>{setpassword(e.target.value)};
 
-    // }
-    // let buttonClick = () => {
-    //     valChange()
-    //     let changes = ()=>{
-    //         console.log(name)
-    //         console.log(email)
-    //         console.log(password)
-    //     }
-    //     changes()
-    // }
     return (
         <div className="register">
             <h2>Register</h2>
