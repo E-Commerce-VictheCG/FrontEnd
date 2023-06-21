@@ -1,3 +1,10 @@
+.login {
+  border: 2px solid rebeccapurple;
+  width: 50%;
+  margin: auto;
+  margin-top: 5%;
+}
+
 .login_input {
   border: 2px solid rgb(0, 140, 255);
   width: 80%;
