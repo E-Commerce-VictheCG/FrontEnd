@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './SignUp.css';
-import Login from '../Login Page/Login';
 const SignUp=()=>{
     const [name, setname] = useState("");
     const [email, setemail] = useState("");
@@ -34,8 +33,11 @@ const SignUp=()=>{
 
     return (
         <div className="register">
-            <h2>Register</h2>
-            <h5><a href={Login}>Register</a></h5>
+            <div className='head'>
+                <div className='spacee'></div>
+                <h2>Register</h2>
+                <Link to={"/Login"}><h5>Login</h5></Link>
+            </div>
             <input className="inputBox" type="text" placeholder="Enter Name" value={name} onChange={(e)=>{setname(e.target.value)}}/>
             <input className="inputBox" type="text" placeholder="Enter Email" value={email} onChange={(e)=>{setemail(e.target.value)}}/>
             <input className="inputBox" type="password" placeholder="Enter Password" value={password}  onChange={(e)=>{setpassword(e.target.value)}}/>
