@@ -1,24 +1,41 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './Login.css'
 import { Link, useNavigate } from 'react-router-dom'
 const Login=()=> {
     const navigate = useNavigate()
     const [email, setemail] = useState("");
     const [password, setpassword] = useState("");
-    
+
+    useEffect(() => {
+        const auth = localStorage.getItem("user");
+        if (auth) {
+            navigate('/');
+        }
+    }, [navigate])
+
     const handleLogin= async ()=> {
-        console.warn([email, password])
-        let data = await fetch("http://localhost:5000/auth/login", {
+        // console.warn([email, password])
+        let data = await fetch("http://localhost:8000/auth/login", {
             method: 'post',
-            body: JSON.stringify({ email, password }),
             headers: {
                 'Content-Type': 'application/json'
-            }
+            },
+            body: JSON.stringify({ email, password }),
         });
         data = await data.json();
-        console.table(data);
-        localStorage.setItem("user",JSON.stringify(data));
-        navigate("/");
+        console.log(data)
+        if(data.success === true) {
+            // const localdata =  JSON.stringify(data)
+            localStorage.setItem("user",JSON.stringify(data));
+            navigate('/');
+            console.table(data);
+        }
+        else {
+            alert("Please correct credentials!");
+            console.table(data);
+            return;
+        }
+
 
     }
 
