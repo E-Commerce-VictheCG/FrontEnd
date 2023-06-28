@@ -45,6 +45,7 @@ body {
 
 .navbar {
   background-color: #61dafb;
+  /* height: fit-content; */
 }
 
 .navbar_ul {
@@ -52,6 +53,14 @@ body {
   display: flex;
   /* justify-content: flex-start; */
   justify-content: space-evenly;
+}
+
+.nav-right {
+  display: block;
+  text-align: right;
+}
+.nav-right li{
+  padding-right: 20px;
 }
 
 .navbar_ul li {
