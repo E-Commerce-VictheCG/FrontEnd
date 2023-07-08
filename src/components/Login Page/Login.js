@@ -2,6 +2,8 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import './Login.css'
 import { Link, useNavigate } from 'react-router-dom'
+
+
 const Login=()=> {
     const navigate = useNavigate()
     const [email, setemail] = useState("");
@@ -26,17 +28,16 @@ const Login=()=> {
         data = await data.json();
         // console.log(data)
         if(data.user.name) {
-            console.table(data);
+            console.table(data.user.name);
             // const localdata =  JSON.stringify(data)
             localStorage.setItem("user", JSON.stringify(data.user));
             navigate('/');
         }
-        else {
-            alert("Please correct credentials!");
-            console.table(data);
-            return;
-        }
-
+        // else {
+        //     alert("Please correct credentials!");
+        //     console.table(data);
+        //     return;
+        // }
 
     }
 
