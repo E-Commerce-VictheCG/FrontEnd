@@ -1,3 +1,4 @@
+import React from 'react'
 import { useState, useEffect } from 'react'
 import './Login.css'
 import { Link, useNavigate } from 'react-router-dom'
@@ -11,7 +12,7 @@ const Login=()=> {
         if (auth) {
             navigate('/');
         }
-    }, [navigate])
+    }, [])
 
     const handleLogin= async ()=> {
         // console.warn([email, password])
@@ -20,15 +21,15 @@ const Login=()=> {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ email, password }),
+            body: JSON.stringify({ email, password })
         });
         data = await data.json();
-        console.log(data)
-        if(data.success === true) {
-            // const localdata =  JSON.stringify(data)
-            localStorage.setItem("user",JSON.stringify(data));
-            navigate('/');
+        // console.log(data)
+        if(data.user.name) {
             console.table(data);
+            // const localdata =  JSON.stringify(data)
+            localStorage.setItem("user", JSON.stringify(data.user));
+            navigate('/');
         }
         else {
             alert("Please correct credentials!");
@@ -47,7 +48,9 @@ const Login=()=> {
                 <Link to={"/signup"}><h5>Register</h5></Link>
             </div>
             <input className="login_input" type="email" placeholder="Enter Email" value={email} onChange={(e) =>{setemail(e.target.value)}}/>
+
             <input className="login_input" type="password" placeholder="Enter Password" value={password} onChange={(e) =>{setpassword(e.target.value)}}/>
+
             <button className="inputButt" type="button" onClick={handleLogin}>Login</button>
         </div>
     )
