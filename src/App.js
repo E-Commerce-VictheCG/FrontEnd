@@ -4,7 +4,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Fotter'
 import SignUp from './components/Signup Page/SignUp';
 import Login from './components/Login Page/Login';
-import Product from "./components/Product Page/productList"
+import Products from "./components/Product Page/productList"
 import AddProduct from "./components/Add_Products/addProduct"
 import UpdateProduct from "./components/Update Product/UpdateProduct"
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
@@ -17,7 +17,7 @@ function App() {
         <Navbar/>
         <Routes>
           <Route element={<PrivateComponent />}>
-            <Route path='/' element={<Product/>} />
+            <Route path='/' element={<Products/>} />
             <Route path='/add' element={<AddProduct />} />
             <Route path='/update/:id' element={<UpdateProduct />} />
             <Route path='/logout' element={<h1>Logout Componet</h1>} />
