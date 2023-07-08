@@ -14,4 +14,21 @@
   display: block;
   margin: auto;
   margin-bottom: 30px;
+}
+
+.product-list {
+  text-align: center;
+}
+.product-list .products {
+  border: solid rebeccapurple 2px;
+}
+.product-list .products ul {
+  margin: 0;
+  padding: 0;
+}
+.product-list .products ul li {
+  display: inline-block;
+  list-style-type: none;
+  width: 160px;
+  border: solid rgb(51, 95, 153) 2px;
 }/*# sourceMappingURL=product.css.map */
